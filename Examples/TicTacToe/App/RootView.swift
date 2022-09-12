@@ -34,7 +34,8 @@ struct RootView: View {
       appReducer
       .debug(),
     environment: AppEnvironment(
-      authenticationClient: .live
+      authenticationClient: .live,
+      trackingClient: .live(token: "ASK IOS CHANNEL FOR TOKEN - DO NOT COMMIT TO SOURCE")
     )
   )
 
