@@ -22,11 +22,13 @@ let package = Package(
     .library(name: "NewGameCore", targets: ["NewGameCore"]),
     .library(name: "NewGameSwiftUI", targets: ["NewGameSwiftUI"]),
     .library(name: "NewGameUIKit", targets: ["NewGameUIKit"]),
+    .library(name: "TrackingClient", targets: ["TrackingClient"]),
     .library(name: "TwoFactorCore", targets: ["TwoFactorCore"]),
     .library(name: "TwoFactorSwiftUI", targets: ["TwoFactorSwiftUI"]),
     .library(name: "TwoFactorUIKit", targets: ["TwoFactorUIKit"]),
   ],
   dependencies: [
+    .package(url: "https://github.com/mixpanel/mixpanel-swift", from: .init(4, 0, 1)),
     .package(name: "swift-composable-architecture", path: "../../..")
   ],
   targets: [
@@ -36,6 +38,7 @@ let package = Package(
         "AuthenticationClient",
         "LoginCore",
         "NewGameCore",
+        "TrackingClient",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
@@ -154,7 +157,12 @@ let package = Package(
         "NewGameCore",
       ]
     ),
-
+    .target(
+      name: "TrackingClient",
+      dependencies: [
+        .product(name: "Mixpanel", package: "mixpanel-swift")
+      ]
+    ),
     .target(
       name: "TwoFactorCore",
       dependencies: [

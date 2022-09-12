@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84809BEE28CFDC3800F50330 /* TrackingClient in Frameworks */ = {isa = PBXBuildFile; productRef = 84809BED28CFDC3800F50330 /* TrackingClient */; };
 		CA0A5766242AA3A800BA537D /* TicTacToeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A5765242AA3A800BA537D /* TicTacToeApp.swift */; };
 		CA0A576A242AA3A900BA537D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA0A5769242AA3A900BA537D /* Assets.xcassets */; };
 		CA0A579F242AA7F800BA537D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A579E242AA7F800BA537D /* RootView.swift */; };
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84809BEE28CFDC3800F50330 /* TrackingClient in Frameworks */,
 				DCB9EA0126B20D4B00497C03 /* AppSwiftUI in Frameworks */,
 				DCB9EA0326B20D4B00497C03 /* AppUIKit in Frameworks */,
 				DCB9EA0526B20E4C00497C03 /* AuthenticationClientLive in Frameworks */,
@@ -38,6 +40,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84809BEA28CFD40400F50330 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		84809BEC28CFDC3800F50330 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CA6AC25C2450FDB800C71CB3 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +67,12 @@
 		DC9193ED2420104100A5BE1F = {
 			isa = PBXGroup;
 			children = (
+				84809BEA28CFD40400F50330 /* Packages */,
 				DCB9E9FD26B207CD00497C03 /* tic-tac-toe */,
 				DCB9EA3D26B2188200497C03 /* README.md */,
 				CA6AC25C2450FDB800C71CB3 /* App */,
 				DC9193F72420104100A5BE1F /* Products */,
+				84809BEC28CFDC3800F50330 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +104,7 @@
 				DCB9EA0026B20D4B00497C03 /* AppSwiftUI */,
 				DCB9EA0226B20D4B00497C03 /* AppUIKit */,
 				DCB9EA0426B20E4C00497C03 /* AuthenticationClientLive */,
+				84809BED28CFDC3800F50330 /* TrackingClient */,
 			);
 			productName = TicTacToe;
 			productReference = CA0A5761242AA3A800BA537D /* TicTacToe.app */;
@@ -116,6 +135,7 @@
 			);
 			mainGroup = DC9193ED2420104100A5BE1F;
 			packageReferences = (
+				8492063228CBFB7000E929BF /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 			);
 			productRefGroup = DC9193F72420104100A5BE1F /* Products */;
 			projectDirPath = "";
@@ -339,7 +359,22 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		8492063228CBFB7000E929BF /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		84809BED28CFDC3800F50330 /* TrackingClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TrackingClient;
+		};
 		DCB9EA0026B20D4B00497C03 /* AppSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppSwiftUI;
