@@ -92,6 +92,16 @@ let trackingReducer = Reducer<AppState, AppAction, AppEnvironment> { state, acti
 
         return .none
 
+    case .newGame(.game(.playAgainButtonTapped)):
+        if case let .newGame(newGameState) = state {
+            environment.trackingClient.track("Rematch", [
+                "x_player_name": newGameState.xPlayerName,
+                "o_player_name": newGameState.oPlayerName
+            ])
+        }
+
+        return .none
+
     case .newGame(.letsPlayButtonTapped):
         if case let .newGame(newGameState) = state {
             environment.trackingClient.track("New Game Started", [
