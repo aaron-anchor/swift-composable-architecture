@@ -1,4 +1,6 @@
 import Foundation
+import Mixpanel
+import Segment
 
 public struct TrackingClient {
     public var track: (String, [String: Any]?) -> Void

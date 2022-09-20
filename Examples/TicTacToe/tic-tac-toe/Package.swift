@@ -29,6 +29,7 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/segmentio/analytics-ios", from: .init(4, 1, 6)),
+    .package(url: "https://github.com/mixpanel/mixpanel-swift", from: .init(4, 0, 3)),
     .package(name: "swift-composable-architecture", path: "../../..")
   ],
   targets: [
@@ -160,7 +161,8 @@ let package = Package(
     .target(
         name: "TrackingClient",
         dependencies: [
-            .product(name: "Segment", package: "analytics-ios")
+            .product(name: "Segment", package: "analytics-ios"),
+            .product(name: "Mixpanel", package: "mixpanel-swift")
         ]
     ),
     .target(

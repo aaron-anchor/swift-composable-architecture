@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84046E1528DA298900E5833B /* Segment in Frameworks */ = {isa = PBXBuildFile; productRef = 84046E1428DA298900E5833B /* Segment */; };
+		84046E1828DA29B000E5833B /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 84046E1728DA29B000E5833B /* Mixpanel */; };
 		CA0A5766242AA3A800BA537D /* TicTacToeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A5765242AA3A800BA537D /* TicTacToeApp.swift */; };
 		CA0A576A242AA3A900BA537D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA0A5769242AA3A900BA537D /* Assets.xcassets */; };
 		CA0A579F242AA7F800BA537D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A579E242AA7F800BA537D /* RootView.swift */; };
@@ -30,7 +32,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCB9EA0126B20D4B00497C03 /* AppSwiftUI in Frameworks */,
+				84046E1828DA29B000E5833B /* Mixpanel in Frameworks */,
 				DCB9EA0326B20D4B00497C03 /* AppUIKit in Frameworks */,
+				84046E1528DA298900E5833B /* Segment in Frameworks */,
 				DCB9EA0526B20E4C00497C03 /* AuthenticationClientLive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +90,8 @@
 				DCB9EA0026B20D4B00497C03 /* AppSwiftUI */,
 				DCB9EA0226B20D4B00497C03 /* AppUIKit */,
 				DCB9EA0426B20E4C00497C03 /* AuthenticationClientLive */,
+				84046E1428DA298900E5833B /* Segment */,
+				84046E1728DA29B000E5833B /* Mixpanel */,
 			);
 			productName = TicTacToe;
 			productReference = CA0A5761242AA3A800BA537D /* TicTacToe.app */;
@@ -116,6 +122,8 @@
 			);
 			mainGroup = DC9193ED2420104100A5BE1F;
 			packageReferences = (
+				84046E1328DA298900E5833B /* XCRemoteSwiftPackageReference "analytics-ios" */,
+				84046E1628DA29B000E5833B /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 			);
 			productRefGroup = DC9193F72420104100A5BE1F /* Products */;
 			projectDirPath = "";
@@ -339,7 +347,36 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		84046E1328DA298900E5833B /* XCRemoteSwiftPackageReference "analytics-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/segmentio/analytics-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		84046E1628DA29B000E5833B /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		84046E1428DA298900E5833B /* Segment */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84046E1328DA298900E5833B /* XCRemoteSwiftPackageReference "analytics-ios" */;
+			productName = Segment;
+		};
+		84046E1728DA29B000E5833B /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84046E1628DA29B000E5833B /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
+		};
 		DCB9EA0026B20D4B00497C03 /* AppSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppSwiftUI;
