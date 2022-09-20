@@ -8,9 +8,15 @@ public struct TrackingClient {
 
 extension TrackingClient {
     public static func live(token: String) -> TrackingClient {
+
+        let configuration = AnalyticsConfiguration(writeKey: token)
+        configuration.trackApplicationLifecycleEvents = true
+        configuration.recordScreenViews = true
+        Analytics.setup(with: configuration)
+
         return TrackingClient(
             track: { event, properties in
-                // TBD
+                Analytics.shared().track(event, properties: properties)
             }
         )
     }
