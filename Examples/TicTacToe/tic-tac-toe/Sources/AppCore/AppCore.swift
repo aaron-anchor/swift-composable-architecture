@@ -90,6 +90,27 @@ let trackingReducer = Reducer<AppState, AppAction, AppEnvironment> { state, acti
             )
         }
 
+        if case let .newGame(newGameState) = state,
+            let gameState = newGameState.game,
+            gameState.board.hasWinner == false,
+           gameState.board.isFilled {
+            environment.trackingClient.track(
+                "Game Tied", [
+                    "x_player_name": gameState.xPlayerName,
+                    "o_player_name": gameState.oPlayerName
+                ]
+            )
+        }
+
+        return .none
+
+    case .newGame(.game(.quitButtonTapped)):
+        if case let .newGame(newGameState) = state {
+            environment.trackingClient.track("Quit Playing", [
+                "x_player_name": newGameState.xPlayerName,
+                "o_player_name": newGameState.oPlayerName
+            ])
+        }
         return .none
 
     case .newGame(.game(.playAgainButtonTapped)):
