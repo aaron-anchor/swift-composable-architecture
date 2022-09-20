@@ -34,7 +34,8 @@ struct RootView: View {
       appReducer
       .debug(),
     environment: AppEnvironment(
-      authenticationClient: .live
+      authenticationClient: .live,
+      trackingClient: .live(token: "ask ios team")
     )
   )
 
