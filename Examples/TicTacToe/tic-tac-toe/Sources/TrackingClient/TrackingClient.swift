@@ -4,6 +4,7 @@ import Segment
 
 public struct TrackingClient {
     public var track: (String, [String: Any]?) -> Void
+    public var identify: (String, [String: Any]?) -> Void
 }
 
 extension TrackingClient {
@@ -17,6 +18,9 @@ extension TrackingClient {
         return TrackingClient(
             track: { event, properties in
                 Analytics.shared().track(event, properties: properties)
+            },
+            identify: { uniqueID, traits in
+                Analytics.shared().identify(uniqueID, traits: traits)
             }
         )
     }

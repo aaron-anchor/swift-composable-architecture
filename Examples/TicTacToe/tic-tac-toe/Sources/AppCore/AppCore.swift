@@ -125,6 +125,11 @@ let trackingReducer = Reducer<AppState, AppAction, AppEnvironment> { state, acti
 
     case .newGame(.letsPlayButtonTapped):
         if case let .newGame(newGameState) = state {
+            // Identify both players uniquely
+            // This probably shouldn't be used back-to-back like this
+            //environment.trackingClient.identify(newGameState.xPlayerUniqueID, ["user_name": newGameState.xPlayerName])
+            //environment.trackingClient.identify(newGameState.oPlayerUniqueID, ["user_name": newGameState.oPlayerName])
+
             environment.trackingClient.track("New Game Started", [
                 "x_player_name": newGameState.xPlayerName,
                 "o_player_name": newGameState.oPlayerName
@@ -145,7 +150,17 @@ let trackingReducer = Reducer<AppState, AppAction, AppEnvironment> { state, acti
 
     case let .login(.twoFactor(.twoFactorResponse(.success(response)))),
         let .login(.loginResponse(.success(response))) where !response.twoFactorRequired:
-        environment.trackingClient.track("Login success", nil)
+
+        if case let .login(loginState) = state {
+            // Track successfull login
+            environment.trackingClient.track("Login success", nil)
+
+            // Identify logged in user with identify (better to use some unique system id)
+
+            // Random UUID created for testing unique user
+//            environment.trackingClient.identify("8bbd33f0-39c9-11ed-a261-0242ac120002", ["user_email": loginState.email])
+        }
+
         return .none
 
     case .newGame(.logoutButtonTapped):
